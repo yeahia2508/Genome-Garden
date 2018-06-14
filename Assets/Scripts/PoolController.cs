@@ -9,6 +9,7 @@ public class PoolController : MonoBehaviour {
     public Rigidbody2D ThroughObjectBody; //reference to the rigidbody2d to the through object
 
     public int TapCount; //counts the taps
+    public bool isThrough; //throughn or not
 
     private void Start()
     {
@@ -17,6 +18,15 @@ public class PoolController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        if (isThrough)
+        {
+            if (transform.position.y <= 5f)
+            {
+
+            }
+        }
+
 
 #if UNITY_EDITOR 
         //tap funtions on display
@@ -27,8 +37,12 @@ public class PoolController : MonoBehaviour {
             if(TapCount == 1) //for first click
             {
                 StickBody.bodyType = RigidbodyType2D.Dynamic; //makes the rigidbody of the stick active
+                CameraFollow.Follow = true; //activate the camera follow
+                CameraFollow.FollowUpDownOnly = true; //activate the camera follow
 
-            }else if(TapCount == 2) //for second click
+
+            }
+            else if(TapCount == 2) //for second click
             {
                 //through the basket and through object
                 Destroy(BusketBody.GetComponent<HingeJoint2D>()); //destroy busket joint
@@ -38,6 +52,9 @@ public class PoolController : MonoBehaviour {
                 ThroughObjectBody.velocity *= 3f;//modify busket velocity
                 ThroughObjectBody.transform.parent = null;//clear parent
                 ThroughObjectBody.GetComponent<ParticleSystem>().Play();//start playing particles
+                CameraFollow.FollowUpDownOnly = false; //activate the camera follow
+                BackgroundScroll.Scroll = true;//start backgrounds scrolling
+                Camera.main.gameObject.GetComponent<Animator>().enabled = true;//enables the camera zoomout
             }
         }
 #elif UNITY_ANDROID || UNITY_IOS
@@ -79,6 +96,9 @@ public class PoolController : MonoBehaviour {
 
 
     }
+
+
+
 
 
 
