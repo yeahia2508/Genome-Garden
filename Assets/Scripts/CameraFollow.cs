@@ -12,6 +12,8 @@ public class CameraFollow : MonoBehaviour {
 
     private void Start()
     {
+        Follow = false;
+        FollowUpDownOnly = false;
         BottomLimit = transform.position.y; //set the start y position for bottom limit
     }
 

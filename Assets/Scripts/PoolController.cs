@@ -55,6 +55,7 @@ public class PoolController : MonoBehaviour {
                 CameraFollow.FollowUpDownOnly = false; //activate the camera follow
                 BackgroundScroll.Scroll = true;//start backgrounds scrolling
                 Camera.main.gameObject.GetComponent<Animator>().enabled = true;//enables the camera zoomout
+                PlayerController.playerController.isThrough = true;//say the player that is throughn
             }
         }
 #elif UNITY_ANDROID || UNITY_IOS
@@ -72,6 +73,8 @@ public class PoolController : MonoBehaviour {
             if (TapCount == 1) //for first click
             {
                 StickBody.bodyType = RigidbodyType2D.Dynamic; //makes the rigidbody of the stick active
+                CameraFollow.Follow = true; //activate the camera follow
+                CameraFollow.FollowUpDownOnly = true; //activate the camera follow
 
             }
             else if (TapCount == 2) //for second click
@@ -84,6 +87,10 @@ public class PoolController : MonoBehaviour {
                 ThroughObjectBody.velocity *= 3f; //modify through object velocity
                 ThroughObjectBody.transform.parent = null;//clear parent
                 ThroughObjectBody.GetComponent<ParticleSystem>().Play();//start playing particles
+                CameraFollow.FollowUpDownOnly = false; //activate the camera follow
+                BackgroundScroll.Scroll = true;//start backgrounds scrolling
+                Camera.main.gameObject.GetComponent<Animator>().enabled = true;//enables the camera zoomout
+                PlayerController.playerController.isThrough = true;//say the player that is throughn
 
             }
         }
