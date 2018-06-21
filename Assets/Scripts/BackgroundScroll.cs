@@ -20,7 +20,7 @@ public class BackgroundScroll : MonoBehaviour {
 	void Update () {
         if (!Scroll)
             return;
-        GetComponent<SpriteRenderer>().size += Vector2.right * Speed*PlayerController.playerController.GetComponent<Rigidbody2D>().velocity.x * Time.deltaTime;//scroll the background
+        GetComponent<SpriteRenderer>().size += Vector2.right * Speed*Mathf.Abs(PlayerController.playerController.GetComponent<Rigidbody2D>().velocity.x)* Time.deltaTime;//scroll the background
         transform.position -= Vector3.left * Time.deltaTime*PlayerController.playerController.GetComponent<Rigidbody2D>().velocity.x*ScrollSpeed;
 
         if(isGround)

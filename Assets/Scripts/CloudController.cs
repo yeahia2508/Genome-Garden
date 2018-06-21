@@ -9,7 +9,7 @@ public class CloudController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Cloud");
-        collision.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 500f); //increase the bottole spedd to x axis
+        collision.GetComponent<Rigidbody2D>().AddForce(Vector2.one * 500f); //increase the bottole spedd to x axis
     }
 
 
