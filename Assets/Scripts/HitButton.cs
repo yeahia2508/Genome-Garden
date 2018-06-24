@@ -9,7 +9,10 @@ public class HitButton : MonoBehaviour {
 
     public void HitButtonPressEvent()
     {
-        GetComponent<Animator>().SetTrigger("Switch");
+        if (PlayerController.GameOver)
+            return; 
+
+        GetComponent<Animator>().SetTrigger("Switch"); //change animation state
         ThroughObjectBody.AddForce(Vector2.down*2000f);//modify busket velocity
     }
 }

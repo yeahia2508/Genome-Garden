@@ -18,7 +18,7 @@ public class PoolController : MonoBehaviour {
         TapCount = 0;// initialize the tapcount
     }
 
-    // Update is called once per frame
+ 
     void Update () {
 
         if (isThrough)

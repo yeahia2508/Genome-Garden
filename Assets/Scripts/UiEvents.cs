@@ -15,7 +15,7 @@ public class UiEvents : MonoBehaviour {
     public GameObject GameUi;//reference to the game ui
     //public GameObject GameOverUi; //gameover screen
 
-    // Use this for initialization
+ 
     void Start () {
         uiEvents = this;
 	}

@@ -17,7 +17,6 @@ public class CameraFollow : MonoBehaviour {
         BottomLimit = transform.position.y; //set the start y position for bottom limit
     }
 
-    // Update is called once per frame
     void Update () {
         if (!Follow)
             return;

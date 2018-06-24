@@ -15,7 +15,7 @@ public class ScoreBoard : MonoBehaviour {
         HighScoreView.text = Mathf.Round(PlayerPrefs.GetFloat("HighScore")).ToString(); // set the highscore view
     }
 	
-	// Update is called once per frame
+	// Update is called 
 	void Update () {
 
         ScoreView.text = Mathf.Round(PlayerController.playerController.Distance).ToString(); //update the score view

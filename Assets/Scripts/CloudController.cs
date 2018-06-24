@@ -13,7 +13,6 @@ public class CloudController : MonoBehaviour {
     }
 
 
-    // Use this for initialization
     void Start () {
         SelfRenderer = GetComponent<SpriteRenderer>(); //assign self spriterenderer component
 

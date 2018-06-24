@@ -8,11 +8,12 @@ public class FlowerController : MonoBehaviour {
     public bool isMoveable;//define the gameobject is moveabe or not
 
     private Animator SelfAnimator;//self animator component
-	// Use this for initialization
+
+
 	void Start () {
-        isReady = true;
-        SelfAnimator = GetComponent<Animator>();
-        transform.localScale = Vector3.zero;
+        isReady = true; //set ready at start
+        SelfAnimator = GetComponent<Animator>();//get reference
+        transform.localScale = Vector3.zero; //shrink to zero on start
     }
 	
 	// Update is called once per frame
@@ -22,10 +23,10 @@ public class FlowerController : MonoBehaviour {
             if(transform.position.x <= Camera.main.transform.position.x - 10f)
             {
                 Debug.Log("CameraPassed!");
-                SelfAnimator.enabled = false;
-                transform.localScale = Vector3.zero;
-                transform.position += Vector3.right * 24f;
-                isReady = true;
+                SelfAnimator.enabled = false;//stop animation
+                transform.localScale = Vector3.zero;//shrink to zero
+                transform.position += Vector3.right * 24f;//move forward
+                isReady = true;//set ready for next transection 
             }
         }
 
